@@ -10,8 +10,8 @@ output:
 ```{r opts, echo = FALSE}
 knitr::opts_chunk$set(
     echo = FALSE, message = FALSE, warning = FALSE,
-    cache = 2,
-    cache.path = "cache_git/",
+    cache = 0,
+    # cache.path = "cache_git/",
     dev = "png",
     out.width = "500px",
     dpi = 300,
@@ -36,6 +36,108 @@ theme_set(theme_bw())
 
 ---
 
+# How should you use git?
+
+- Commit often, commit everything[^1]
+- Branches are cheap and easy
+  - Don't work on main unless you're the repo is private and you're working alone
+- Pull often, or deal with huge merge conflicts
+- Reasonably informative commit messages and "atomic" commits are ideal,
+  but not always practical
+
+
+[^1]: Don't *push* everything, though
+
+---
+
+# Essential commands
+
+git pull
+git commit
+git push
+
+but also
+
+git diff
+git log
+git show
+git fetch
+git merge
+
+---
+
+# What is git?
+
+- A content tracker
+- A difference tracker
+- A version control system
+- A filesystem?
+
+
+---
+
+# What is a commit?
+
+- A snapshot of your project
+- A commit is a pointer to a tree and a pointer to the parent commit(s)
+- A tree is a pointer to blobs and other trees
+- A blob is a pointer to a file
+
+- git commit --amend
+
+---
+
+# What is a branch?
+
+- A branch is a name that points to a commit
+- It is a moving target
+  - It points to the most recent commit in a sequence
+
+
+---
+
+# What is a repository?
+
+
+---
+
+# What is a remote?
+
+A remote is a repository
+Usually this is on a version control provider (GitHub)
+It can be a folder on your computer, or a server somewhere else
+A remote contains branches, tags, and commits, some of which might also
+be on your local machine
+
+---
+
+# What is a tag?
+
+
+- A branch is a name that points to a commit
+- It is a static target
+  - It points to a specific commit forever (mostly)
+
+
+---
+
+# GitHub
+
+- Issues
+- PRs
+- Protection rules
+- Actions
+
+---
+
+# How do you self-rescue?
+
+Accidentally committed something
+Accidentally pushed something
+Accidentally pulled something (merge conflict)
+
+---
+
 # git reflog
 
 ```{bash}
@@ -43,6 +145,35 @@ git reflog | head -n 10
 ```
 
 ---
+
+# Other actions
+
+git stash
+git cherry-pick
+git rebase
+git reset
+git revert
+git bisect
+git blame
+git grep
+
+Splitting history (make a subdirectory into its own repo)
+Submodules
+Adding a repository as a subdirectory (merging repos)
+
+---
+
+# Erasing history
+
+You probably don't want to do this, but it's possible
+
+reset
+rebase
+checkout?
+
+
+---
+
 
 # Other resources
 
