@@ -1,0 +1,59 @@
+---
+title: Introduction to git (and GitHub)
+# author: "Alan O'Callaghan"
+output:
+  xaringan::moon_reader:
+    fig_width: 5
+    fig_height: 4
+---
+
+```{r opts, echo = FALSE}
+knitr::opts_chunk$set(
+    echo = FALSE, message = FALSE, warning = FALSE,
+    cache = 2,
+    cache.path = "cache_git/",
+    dev = "png",
+    out.width = "500px",
+    dpi = 300,
+    dev.args = list(
+        type = "cairo-png"
+    ),
+    fig.path = "figure_git/"
+)
+library("ggplot2")
+theme_set(theme_bw())
+```
+
+
+
+# What will we cover today?
+
+- What is git?
+- How does it work?
+- What do we need to know?
+- How do we do common tasks?
+- How do you rescue yourself from messy situations?
+
+---
+
+# git reflog
+
+```{bash}
+git reflog | head -n 10
+```
+
+---
+
+# Other resources
+
+
+```{r, out.width="400px"}
+# knitr::include_graphics("figure/improving_inferences.png")
+```
+
+
+---
+
+# Summary
+
+- Exploring your data saves you time and helps you to analyse your data.
