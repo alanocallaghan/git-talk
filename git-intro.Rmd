@@ -49,10 +49,16 @@ COMMIT=$(git rev-parse HEAD)
 - Commit often, commit everything
   - Don't *push* everything, though
 
+--
+
 - Branches are cheap and easy
   - Don't work on main unless you're the repo is private and you're working alone
 
+--
+
 - Pull often, or reap the reward of huge merge conflicts
+
+--
 
 - Reasonably informative commit messages and "atomic" commits are ideal,
   but not always practical
@@ -128,13 +134,12 @@ git fetch origin
 git merge origin/master
 ```
 
+--
+
 ```{bash}
 git pull origin master
 ```
 
-
-git commit
-git push
 
 but also
 
@@ -285,11 +290,11 @@ git commit
 
 ```{bash}
 git branch new-branch
-git reset --hard origin/master # origin/master is the remote/branch
+# git reset --hard origin/master # origin/master is the remote/branch
 ```
 or, if you can remember some magic
 ```bash
-git reset ${upstream}
+# git reset ${upstream}
 ```
 
 then
