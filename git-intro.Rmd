@@ -24,7 +24,7 @@ theme_set(theme_bw())
 ```
 
 
-```{bash, echo = FALSE}
+```{bash, echo = FALSE, results = "hide"}
 COMMIT=$(git rev-parse HEAD)
 ```
 
@@ -320,7 +320,7 @@ checkout?
 
 - git internals: https://github.com/pluralsight/git-internals-pdf
 
-```{bash, echo = FALSE}
+```{bash, echo = FALSE, results = "hide"}
 git switch master
 git reset --soft ${COMMIT}
 ```
