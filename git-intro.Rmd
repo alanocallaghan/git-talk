@@ -209,8 +209,11 @@ them.
 ```{bash}
 git diff # view the unstaged changes
 ```
+Yep, I'm happy to discard those changes.
+--
 ```{bash}
-git restore another-new-file.txt
+git restore another-new-file.txt # restore the file to the state it was in at the last commit
+```
 ```
 ```{bash}
 git status
@@ -410,9 +413,6 @@ Let's see:
 ```{bash}
 git reflog -n 10
 ```
-
-*that's actually where I found the HEAD@{1} magic syntax*
-
 
 ---
 
