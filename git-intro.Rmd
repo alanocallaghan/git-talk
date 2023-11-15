@@ -54,6 +54,18 @@ COMMIT=$(git rev-parse HEAD)
 
 ---
 
+# Staging
+
+```{r, echo=FALSE}
+knitr::include_graphics("git-add.png")
+```
+
+```{r, echo=FALSE}
+knitr::include_graphics("git-commit-a.png")
+```
+
+---
+
 # Essential commands
 
 ```{bash}
@@ -82,15 +94,6 @@ git merge
 
 git switch
 git restore
-
----
-
-# What is git?
-
-- A content tracker
-- A difference tracker
-- A version control system
-- A filesystem?
 
 
 ---
