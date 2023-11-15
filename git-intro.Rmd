@@ -23,6 +23,11 @@ library("ggplot2")
 theme_set(theme_bw())
 ```
 
+<style type = "text/css">
+  .remark-code-line {
+    font-size: 2pt
+  }
+</style>
 
 ```{bash, echo = FALSE, results = "hide"}
 COMMIT=$(git rev-parse HEAD)
@@ -41,7 +46,8 @@ COMMIT=$(git rev-parse HEAD)
 
 # How should you use git?
 
-- Commit often, commit everything ^[Don't *push* everything, though]
+- Commit often, commit everything
+  - Don't *push* everything, though
 
 - Branches are cheap and easy
   - Don't work on main unless you're the repo is private and you're working alone
