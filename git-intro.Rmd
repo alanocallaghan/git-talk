@@ -33,6 +33,8 @@ theme_set(theme_bw())
 COMMIT=$(git rev-parse HEAD)
 ```
 
+I'm going to write something here that causes merge conflicts.
+
 
 # Outline
 
@@ -136,6 +138,8 @@ git status
 ```{bash}
 git add new-file.txt
 ```
+
+I've also written something here for... some reason.
 
 --
 
@@ -482,12 +486,14 @@ git branch -d new-branch ## cleaning up the repo
 ---
 
 # How do you self-rescue?
-## Accidentally pulled (merge conflict)
+Accidentally pulled (merge conflict)
+
 
 ---
 
 # How do you self-rescue?
-## Accidentally pushed
+
+Accidentally pushed changes to a remote
 
 Here be dragons
 
