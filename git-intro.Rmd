@@ -9,7 +9,6 @@ output:
 
 ```{r opts, echo = FALSE}
 knitr::opts_chunk$set(
-    echo = FALSE, message = FALSE, warning = FALSE,
     cache = 0,
     # cache.path = "cache_git/",
     dev = "png",
@@ -25,6 +24,10 @@ theme_set(theme_bw())
 ```
 
 
+```{bash, echo = FALSE}
+COMMIT=$(git rev-parse HEAD)
+```
+
 
 # What will we cover today?
 
@@ -38,22 +41,36 @@ theme_set(theme_bw())
 
 # How should you use git?
 
-- Commit often, commit everything[^1]
+- Commit often, commit everything ^[Don't *push* everything, though]
+
 - Branches are cheap and easy
   - Don't work on main unless you're the repo is private and you're working alone
-- Pull often, or deal with huge merge conflicts
+
+- Pull often, or reap the reward of huge merge conflicts
+
 - Reasonably informative commit messages and "atomic" commits are ideal,
   but not always practical
 
 
-[^1]: Don't *push* everything, though
+
 
 ---
 
 # Essential commands
 
+```{bash}
 git status
-git pull
+```
+
+```bash
+git fetch [remote]
+```
+
+```bash
+git pull [remote] [branch]
+```
+
+
 git commit
 git push
 
@@ -100,8 +117,38 @@ git restore
 
 ---
 
+# Managing branches
+
+```{bash}
+git branch another-branch
+```
+--
+```{bash}
+git switch another-branch
+```
+--
+```{bash}
+git switch - # switch to the ref (branch) we were last on
+```
+```{bash}
+git branch -d another-branch
+```
+
+--
+
+```{bash}
+git switch -c another-quick-branch
+git switch -
+git branch -d another-quick-branch
+```
+
+---
+
 # What is a repository?
 
+A repository is a folder that contains a `.git` folder
+
+The .git folder contains configuration, objects, and refs (???)
 
 ---
 
@@ -115,10 +162,31 @@ be on your local machine
 
 ---
 
+# Using remotes
+
+```{bash}
+git remote add upstream git@github.com:alanocallaghan/git-talk-2.git
+git fetch upstream
+```
+--
+```{bash}
+git remote show
+```
+--
+```{bash}
+git remote show upstream
+```
+--
+```{bash}
+git remote remove upstream
+```
+
+---
+
 # What is a tag?
 
 
-- A branch is a name that points to a commit
+- A tag is a name that points to a commit
 - It is a static target
   - It points to a specific commit forever (mostly)
 
@@ -136,9 +204,74 @@ be on your local machine
 
 # How do you self-rescue?
 
-Accidentally committed something
-Accidentally pushed something
-Accidentally pulled something (merge conflict)
+It's easiest to save yourself if you commit liberally and push carefully.
+
+Often, `git reset` will come in handy.
+
+`git reset --soft [ref]` will move the branch pointer to ref, with any changes
+left staged. 
+
+`git reset --hard` is much more aggressive - it will move the branch pointer
+
+---
+
+# How do you self-rescue?
+## Accidentally committed
+
+```{bash}
+git log -1 --oneline
+```
+```{bash}
+git reset a1eb83c9949b20418d3a5cf913bde2e6695846c0 # or HEAD~[n]
+```
+```{bash}
+git reset HEAD@{1} # re-add whatever I just committed
+```
+
+```bash
+git add [...]
+git commit
+```
+
+---
+
+# How do you self-rescue?
+## Accidentally committed to the wrong branch
+
+```{bash}
+git branch new-branch
+git reset --hard origin/master # origin/master is the remote/branch
+```
+or, if you can remember some magic
+```bash
+git reset ${upstream}
+```
+
+then
+```{bash}
+git switch new-branch
+git switch -
+```
+
+---
+
+# How do you self-rescue?
+## Accidentally pulled (merge conflict)
+
+---
+
+# How do you self-rescue?
+## Accidentally pushed
+
+Here be dragons
+
+Best only done if:
+
+- you're the only person working on the repo
+- it's a private repo with a few contributors
+- it's required (private/sensitive data, huge files committed)...
+
+Reset HEAD to a previous state
 
 ---
 
@@ -181,14 +314,13 @@ checkout?
 
 # Other resources
 
+- Software carpentries git: https://swcarpentry.github.io/git-novice/
 
-```{r, out.width="400px"}
-# knitr::include_graphics("figure/improving_inferences.png")
+- git book: https://git-scm.com/book/
+
+- git internals: https://github.com/pluralsight/git-internals-pdf
+
+```{bash, echo = FALSE}
+git switch master
+git reset --soft ${COMMIT}
 ```
-
-
----
-
-# Summary
-
-- Exploring your data saves you time and helps you to analyse your data.
