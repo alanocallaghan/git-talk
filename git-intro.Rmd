@@ -84,11 +84,21 @@ git add new-file.txt
 ```
 
 ```{bash}
+git status
+```
+
+---
+
+# Committing and rolling back changes
+
+```{bash}
 git commit -m "Add new-file.txt"
 ```
 
 ```{bash}
-git reset --hard HEAD~1
+git reset HEAD~1 --hard
+# --soft keeps all changes staged
+# --mixed (the default) unstages changes
 ```
 
 ---
