@@ -291,23 +291,18 @@ git branch -d another-quick-branch
 
 ---
 
-# What is a repository?
-
-A repository is a folder that contains a `.git` folder
-
-The .git folder contains configuration, objects, and refs (???)
-
----
-
 # What is a remote?
 
-A remote is a repository
+A remote is just another repository.
 
 Usually this is on a version control provider (GitHub)
-It can be a folder on your computer, or a server somewhere else
+It can be a folder on your computer, or a server somewhere else.
 
 A remote contains branches, tags, and commits, some of which might also
-be on your local machine
+be on your local machine. When you *fetch* from a remote, just
+as when you *clone* a repository, you should get all of the
+commits stored on the remote, as well as any of the branches, tags, etc
+(though this might not always be immediately obvious).
 
 
 ---
