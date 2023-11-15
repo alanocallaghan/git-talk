@@ -59,7 +59,7 @@ COMMIT=$(git rev-parse HEAD)
 ```{r, echo=FALSE, out.width = "50%"}
 knitr::include_graphics("git-add.png")
 ```
-
+--
 ```{r, echo=FALSE, out.width = "50%"}
 knitr::include_graphics("git-commit-a.png")
 ```
