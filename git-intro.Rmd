@@ -187,8 +187,7 @@ git commit -am "Make sure people know it's an exciting file"
 
 # Rolling back changes
 
-Actually, seems like a file with "my new file" is not really that useful...
-Neither is another file with just "another new file!"...
+Actually, I think my enthusiasm was a bit misplaced.
 
 Let's roll those changes back, so we get back to the original state of the repo.
 
@@ -213,11 +212,28 @@ git diff # view the unstaged changes
 ```{bash}
 git restore another-new-file.txt
 ```
+```{bash}
+git status
+```
 
 ---
 
 # Removing untracked changes
 
+Hmm... Maybe a file that just says "my new file" isn't crucial...
+or indeed another file that just says "another new file".
+Let's roll back to the original state of the repo.
+
+```{bash}
+git reset HEAD~2
+```
+```{bash}
+git status
+```
+
+--
+
+Okay, let's remove both of those untracked files.
 ```{bash}
 git clean -f # better to use -n/--dry-run, or -i (interactive) to be safe
 ```
@@ -225,6 +241,18 @@ git clean -f # better to use -n/--dry-run, or -i (interactive) to be safe
 ```{bash}
 git status
 ```
+
+Done!
+
+---
+
+
+
+# What is a branch?
+
+- A branch is a name that points to a commit
+- It is a moving target
+  - It points to the most recent commit in a sequence
 
 ---
 
@@ -237,21 +265,6 @@ git branch
 ```{bash}
 git branch -a
 ```
-
----
-
-# Other commands
-
-git show
-
----
-
-# What is a branch?
-
-- A branch is a name that points to a commit
-- It is a moving target
-  - It points to the most recent commit in a sequence
-
 
 ---
 
