@@ -188,16 +188,6 @@ git remote remove upstream
 - It is a static target
   - It points to a specific commit forever (mostly)
 
-
----
-
-# GitHub
-
-- Issues
-- PRs
-- Protection rules
-- Actions
-
 ---
 
 # How do you self-rescue?
