@@ -212,7 +212,7 @@ git diff # view the unstaged changes
 Yep, I'm happy to discard those changes.
 --
 ```{bash}
-git restore another-new-file.txt # restore the file to the state it was in at the last commit
+git restore another-new-file.txt # restore the file to the state it was in the last commit
 ```
 ```{bash}
 git status
@@ -249,7 +249,9 @@ Done!
 # What is a branch?
 
 - A branch is a name that points to a commit
+
 - It is a moving target
+
   - It points to the most recent commit in a sequence
 
 ---
