@@ -530,14 +530,6 @@ Reset HEAD to a previous state
 
 ---
 
-# git reflog
-
-```{bash}
-git reflog | head -n 10
-```
-
----
-
 # Other actions
 
 ```bash
