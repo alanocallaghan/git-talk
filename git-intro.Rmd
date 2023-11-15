@@ -44,6 +44,22 @@ COMMIT=$(git rev-parse HEAD)
 
 ---
 
+# Disclaimer
+
+I am not really a git expert.
+
+I will probably say multiple things that are completely wrong or misleading.
+
+I have simply used git for a while, and am willing to look up commands and
+occasionally break my repos, which means I am now familiar with git.
+
+I still frequently make mistakes when managing repositories.
+
+Making mistakes is usually fine, and very fixable, as long as you follow some
+basic rules.
+
+---
+
 # How should you use git?
 
 - Commit often, commit everything
@@ -141,33 +157,14 @@ git branch -a
 
 ---
 
-# Other commands
 
-```{bash}
-git fetch origin
-```
-
-```{bash}
-git merge origin/master
-```
-
---
-
-```{bash}
-git pull origin master
-```
-
-
-but also
 
 git diff
 git log
 git show
-git fetch
-git merge
 
-git switch
-git restore
+
+
 
 
 ---
@@ -230,10 +227,32 @@ The .git folder contains configuration, objects, and refs (???)
 # What is a remote?
 
 A remote is a repository
+
 Usually this is on a version control provider (GitHub)
 It can be a folder on your computer, or a server somewhere else
+
 A remote contains branches, tags, and commits, some of which might also
 be on your local machine
+
+
+---
+
+# Interacting with remotes
+
+```{bash}
+git fetch origin
+```
+
+```{bash}
+git merge origin/master
+```
+
+--
+
+```{bash}
+git pull origin master
+```
+
 
 ---
 
