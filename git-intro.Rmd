@@ -63,7 +63,7 @@ I still frequently make mistakes when managing repositories.
 
 --
 
-Making mistakes is usually fine, and very fixable, as long as you follow some
+Making mistakes is usually fine, and easily fixable, as long as you follow some
 basic rules.
 
 ---
@@ -78,7 +78,7 @@ basic rules.
 
 - Branches are cheap and easy
 
-  - Don't work on main unless you're the repo is private and you're working alone
+  - Don't work on master/main unless you're the repo is private and/or you're working alone
 
 --
 
@@ -89,6 +89,16 @@ basic rules.
 - Reasonably informative commit messages and "atomic" commits are ideal,
   but not always practical
 
+---
+
+# What is a git repo?
+
+Fundamentally, it's just a directory with a special `.git` folder.
+
+The `.git` folder contains every version of all of the files in the repository,
+as well as metadata like branches, tags, and remotes.
+
+To add files to git, they first need to be **staged**, then **committed**.
 
 ---
 
@@ -104,10 +114,22 @@ knitr::include_graphics("git-commit-a.png")
 
 ---
 
+# git demonstrations
+
+The code for this talk is written in a git repo.
+
+The commands I've written
+here should mostly work in another repo if you want to follow along.
+
+However I've tried to provide some small exercises to try them out yourself,
+so don't feel obliged.
+
+---
+
 # Staging demonstration
 
 ```{bash}
-echo "my new file" > new-file.txt
+echo "my new" > new-file.txt
 git status
 ```
 
@@ -123,7 +145,7 @@ git status
 
 ---
 
-# Committing and rolling back changes
+# Committing changes
 
 ```{bash}
 git commit -m "Add new-file.txt"
@@ -131,27 +153,63 @@ git commit -m "Add new-file.txt"
 
 --
 
-Oops! I forgot some changes
+Oops! I forgot a word in my initial commit. I'm going to *amend* the commit.
 
 ```{bash}
-echo "more changes" > another-new-file.txt
-git commit -a --amend -m "Add new-file.txt and another-new-file.txt"
+echo "my new file" > new-file.txt
+git commit -a --amend -m "Add new-file.txt"
 ```
 
-# Rolling back changes
+--
 
+This is handy for trying to create "atomic" commits, where each commit is a
+working version of the code (not always feasible, but ideal).
+
+---
+
+# Committing changes (again)
 
 ```{bash}
-git reset HEAD~1
-``` 
+echo "another new file" > another-new-file.txt
+git add . # add all files in the current directory
+git commit -m "Add another-new-file.txt"
+```
 
+--
+
+Actually, I want to add some emphasis to that new file.
 ```{bash}
-git status
+echo "another new file!!!!!" > another-new-file.txt
+git commit -am "Make sure people know it's an exciting file"
 ```
 
 ---
 
 # Rolling back changes
+
+Actually, seems like a file with "my new file" is not really that useful...
+Neither is another file with just "another new file!"...
+
+Let's roll those changes back, so we get back to the original state of the repo.
+
+```{bash}
+git reset HEAD~1 # revert the repo to the previous commit, but keep the changes on disk
+```
+
+```{bash}
+git status
+```
+
+```{bash}
+git diff # view the unstaged changes
+```
+```{bash}
+git restore another-new-file.txt
+```
+
+---
+
+# Removing untracked changes
 
 ```{bash}
 git clean -f # better to use -n/--dry-run, or -i (interactive) to be safe
@@ -177,11 +235,7 @@ git branch -a
 
 # Other commands
 
-
-git diff
-git log
 git show
-
 
 ---
 
@@ -313,16 +367,41 @@ left staged.
 git log -1 --oneline
 ```
 ```{bash}
-git reset a1eb83c9949b20418d3a5cf913bde2e6695846c0 # or HEAD~[n]
+git show HEAD~1 # view the last commit
 ```
+
 ```{bash}
-git reset HEAD@{1} # re-add whatever I just committed
+git reset HEAD~1 # or a specific commit SHA/hash
 ```
 
 ```bash
 git add [...]
-git commit
+git commit [...] # commit the changes you really want
 ```
+
+or, if you realise you did want all those changes after all, you could do
+
+```{bash}
+git reset HEAD@{1} # go back to the previous state of the repo, before I reset it
+```
+
+---
+
+# What is HEAD@{1}???
+
+Truthfully, you can probably treat that as magic syntax.
+
+Personally, I would instead use the amazing `git reflog` to find a specific
+reference that I want to revert to.
+
+Let's see:
+
+```{bash}
+git reflog -n 10
+```
+
+*that's actually where I found the HEAD@{1} magic syntax*
+
 
 ---
 
