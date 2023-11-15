@@ -29,12 +29,12 @@ COMMIT=$(git rev-parse HEAD)
 ```
 
 
-# What will we cover today?
+# Outline
 
-- What is git?
-- How does it work?
-- What do we need to know?
 - How do we do common tasks?
+
+- What do we need to know?
+
 - How do you rescue yourself from messy situations?
 
 ---
@@ -50,8 +50,6 @@ COMMIT=$(git rev-parse HEAD)
 
 - Reasonably informative commit messages and "atomic" commits are ideal,
   but not always practical
-
-
 
 
 ---
@@ -203,6 +201,8 @@ git remote remove upstream
 ---
 
 # How do you self-rescue?
+
+As with all-self rescue, the best way is to avoid getting into trouble in the first place.
 
 It's easiest to save yourself if you commit liberally and push carefully.
 
