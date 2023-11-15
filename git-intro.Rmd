@@ -25,7 +25,7 @@ theme_set(theme_bw())
 
 <style type = "text/css">
   .remark-code-line {
-    font-size: 2pt
+    font-size: 10pt
   }
 </style>
 
