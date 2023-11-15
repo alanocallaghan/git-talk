@@ -56,22 +56,33 @@ COMMIT=$(git rev-parse HEAD)
 
 # Staging
 
-Before changes are committed, they need to be staged, or added to the staging
-area/index.
-
-After files are committed, they're now part of the local repository.
-
-When commits are pushed, all of the objects (files, directories) are copied
-to the remote repository.
-
---
-
 ```{r, echo=FALSE, out.width = "50%"}
 knitr::include_graphics("git-add.png")
 ```
 --
 ```{r, echo=FALSE, out.width = "50%"}
 knitr::include_graphics("git-commit-a.png")
+```
+
+---
+
+# Staging demonstration
+
+```{bash}
+echo "my new file" > new-file.txt
+git status
+```
+
+```{bash}
+git add new-file.txt
+```
+
+```{bash}
+git commit -m "Add new-file.txt"
+```
+
+```{bash}
+git reset --hard HEAD~1
 ```
 
 ---
