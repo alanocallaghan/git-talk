@@ -157,6 +157,7 @@ git branch -a
 
 ---
 
+# Other commands
 
 
 git diff
@@ -172,11 +173,15 @@ git show
 # What is a commit?
 
 - A snapshot of your project
+
 - A commit is a pointer to a tree and a pointer to the parent commit(s)
+
 - A tree is a pointer to blobs and other trees
+
 - A blob is a pointer to a file
 
-- git commit --amend
+
+Should mention this somewhere: git commit --amend
 
 ---
 
