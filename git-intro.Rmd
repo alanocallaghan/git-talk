@@ -56,11 +56,11 @@ COMMIT=$(git rev-parse HEAD)
 
 # Staging
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, out.width = "50%"}
 knitr::include_graphics("git-add.png")
 ```
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, out.width = "50%"}
 knitr::include_graphics("git-commit-a.png")
 ```
 
