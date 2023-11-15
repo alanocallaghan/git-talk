@@ -214,7 +214,6 @@ Yep, I'm happy to discard those changes.
 ```{bash}
 git restore another-new-file.txt # restore the file to the state it was in at the last commit
 ```
-```
 ```{bash}
 git status
 ```
