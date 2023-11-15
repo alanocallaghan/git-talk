@@ -302,7 +302,9 @@ or, if you can remember some magic
 then
 ```{bash}
 git switch new-branch
+# after it's pushed/merged/done...
 git switch -
+git branch -d new-branch ## cleaning up the repo
 ```
 
 ---
