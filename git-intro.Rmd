@@ -123,6 +123,16 @@ git commit -m "Add new-file.txt"
 
 --
 
+Oops! I forgot some changes
+
+```{bash}
+echo "more changes" > another-new-file.txt
+git commit -a --amend -m "Add new-file.txt and another-new-file.txt"
+```
+
+# Rolling back changes
+
+
 ```{bash}
 git reset HEAD~1
 ```
@@ -164,24 +174,6 @@ git diff
 git log
 git show
 
-
-
-
-
----
-
-# What is a commit?
-
-- A snapshot of your project
-
-- A commit is a pointer to a tree and a pointer to the parent commit(s)
-
-- A tree is a pointer to blobs and other trees
-
-- A blob is a pointer to a file
-
-
-Should mention this somewhere: git commit --amend
 
 ---
 
