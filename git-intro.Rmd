@@ -91,6 +91,8 @@ git status
 git add new-file.txt
 ```
 
+--
+
 ```{bash}
 git status
 ```
@@ -103,13 +105,22 @@ git status
 git commit -m "Add new-file.txt"
 ```
 
+--
+
 ```{bash}
 git reset HEAD~1
 ```
 
 ```{bash}
 git status
+```
+
+```{bash}
 git restore .
+```
+
+```{bash}
+git status
 ```
 
 ---
