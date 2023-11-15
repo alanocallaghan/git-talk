@@ -244,7 +244,27 @@ Done!
 
 ---
 
+# So, what is a commit anyway?
 
+A commit is a snapshot of the repo.
+
+It has a reference to the previous commit, and a snapshot of the repository.
+
+Commits are referenced by a hash, which is a unique identifier for that commit.
+
+You can find out what the last commit was with:
+
+```{bash}
+git log -1
+```
+
+And view it with
+
+```{bash}
+git show HEAD~1 # or git show [HASH}
+```
+
+---
 
 # What is a branch?
 
