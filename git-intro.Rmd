@@ -372,7 +372,7 @@ left staged.
 ---
 
 # How do you self-rescue?
-## Accidentally committed
+Accidentally committed
 
 ```{bash}
 git log -1 --oneline
@@ -417,7 +417,8 @@ git reflog -n 10
 ---
 
 # How do you self-rescue?
-## Accidentally committed to the wrong branch
+
+Accidentally committed to the wrong branch
 
 ```{bash}
 git branch new-branch
@@ -468,29 +469,27 @@ git reflog | head -n 10
 
 # Other actions
 
-git stash
-git cherry-pick
-git rebase
-git reset
-git revert
-git bisect
+```bash
+git stash # save changes for later, without committing (beware!)
+git cherry-pick # copy a commit from one branch to another
+git rebase # rewrite history (useful for merge requests, but can be messy!)
+git revert # undo a commit
+git bisect # advanced, but really useful for finding bugs
 git blame
-git grep
-
-Splitting history (make a subdirectory into its own repo)
-Submodules
-Adding a repository as a subdirectory (merging repos)
+```
 
 ---
 
-# Erasing history
+# Other git magic
 
-You probably don't want to do this, but it's possible
+Splitting history (make a subdirectory into its own repo)
 
-reset
-rebase
-checkout?
+Adding a repository as a subdirectory (merging repos)
 
+Submodules (repositories within repositories)
+
+These are all relatively easy, but the answers can be better found
+on StackOverflow than I can explain right now.
 
 ---
 
@@ -505,5 +504,5 @@ checkout?
 
 ```{bash, echo = FALSE, results = "hide"}
 git switch master
-git reset --soft ${COMMIT}
+git reset --hard ${COMMIT}
 ```
