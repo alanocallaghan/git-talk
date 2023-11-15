@@ -103,18 +103,30 @@ git reset HEAD~1 --hard
 
 ---
 
-# Essential commands
+# Local refs to remote branches
 
 ```{bash}
-git status
+git branch
 ```
 
-```bash
-git fetch [remote]
+```{bash}
+git branch -a
 ```
 
-```bash
-git pull [remote] [branch]
+---
+
+# Other commands
+
+```{bash}
+git fetch origin
+```
+
+```{bash}
+git merge origin/master
+```
+
+```{bash}
+git pull origin master
 ```
 
 
