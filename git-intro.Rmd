@@ -482,14 +482,43 @@ git branch -d new-branch ## cleaning up the repo
 ---
 
 # How do you self-rescue?
-## Accidentally pulled (merge conflict)
+Accidentally pulled (merge conflict)
+
+```{bash}
+git fetch origin
+```
+```{bash}
+git merge origin/messy-branch
+```
+```{bash}
+git status
+```
+
+The simplest way to get out of this is to abort the merge!
+```{bash}
+git merge --abort
+```
+
+# Merge conflicts
+
+The more complex way to deal with merge conflicts is to...
+
+actually resolve the merge conflict, then commit the changes.
+
+Unfortunately I can't help you much with this, it's difficult!
+
+However, pulling often will make them less bad.
+
 
 ---
 
 # How do you self-rescue?
-## Accidentally pushed
+Accidentally pushed changes to a remote.
 
-Here be dragons
+Here be dragons, altering history is risky, and you need to ensure that
+everybody else who can push to the repo is aware of what you're doing,
+and is willing to reset to your version - otherwise, the changes will end
+up being pushed again, along with big merge conflicts!
 
 Best only done if:
 
