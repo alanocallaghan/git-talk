@@ -238,10 +238,6 @@ Okay, let's remove both of those untracked files.
 git clean -f # better to use -n/--dry-run, or -i (interactive) to be safe
 ```
 
-```{bash}
-git status
-```
-
 Done!
 
 ---
