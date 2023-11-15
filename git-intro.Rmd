@@ -488,7 +488,7 @@ Accidentally pulled (merge conflict)
 git fetch origin
 ```
 ```{bash}
-git merge --no-commit origin/messy-branch
+git merge origin/messy-branch || true # this allows me to run the merge and ignore the error
 ```
 ```{bash}
 git status
