@@ -220,12 +220,12 @@ git status
 
 # Removing untracked changes
 
-Hmm... Maybe a file that just says "my new file" isn't crucial...
-or indeed another file that just says "another new file".
-Let's roll back to the original state of the repo.
+Hmm... Maybe a file that says "my new file" isn't crucial...
+or indeed another file that says "another new file".
+Let's roll this back.
 
 ```{bash}
-git reset HEAD~2
+git reset HEAD~2 # go back two commits
 ```
 ```{bash}
 git status
