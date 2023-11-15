@@ -252,6 +252,10 @@ It has a reference to the previous commit, and a snapshot of the repository.
 
 Commits are referenced by a hash, which is a unique identifier for that commit.
 
+---
+
+# So, what is a commit anyway?
+
 You can find out what the last commit was with:
 
 ```{bash}
@@ -268,27 +272,31 @@ git show HEAD~1 # or git show [HASH}
 
 # What is a branch?
 
-- A branch is a name that points to a commit
+If we just used commits, it'd be quite difficult to navigate the repo.
 
-- It is a moving target
+"Which version are you working on?"
+"Oh, 410defdd6c6"
+"Oh damn, I'm only on fdb0eccf"
 
-  - It points to the most recent commit in a sequence
+Instead, we use branches.
+
+--
+
+A branch is just a name that points to a commit.
+
+It is a moving target.
+
+This means that it points to the most recent commit in a sequence,
+and you can *push* commits to it, updating what the branch name points to.
 
 ---
 
-# Local refs to remote branches
+
+# Managing branches
 
 ```{bash}
 git branch
 ```
-
-```{bash}
-git branch -a
-```
-
----
-
-# Managing branches
 
 ```{bash}
 git branch another-branch
@@ -345,6 +353,19 @@ git merge origin/master
 
 ```{bash}
 git pull origin master
+```
+
+---
+
+
+# Local refs to remote branches
+
+```{bash}
+git branch
+```
+
+```{bash}
+git branch -a
 ```
 
 
