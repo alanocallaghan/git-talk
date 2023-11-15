@@ -200,6 +200,13 @@ git reset HEAD~1 # revert the repo to the previous commit, but keep the changes 
 git status
 ```
 
+---
+
+# Rolling back changes on disk
+
+First, let's see what our unstaged changes are, to be sure we're happy discarding
+them.
+
 ```{bash}
 git diff # view the unstaged changes
 ```
