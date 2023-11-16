@@ -270,6 +270,7 @@ git show HEAD~1 # or git show [HASH}
 
 ---
 
+
 # What is a branch?
 
 If we just used commits, it'd be quite difficult to navigate the repo.
@@ -341,15 +342,25 @@ commits stored on the remote, as well as any of the branches, tags, etc
 
 # Interacting with remotes
 
+The main way to interact with a remote is to `fetch` updates from it.
+This will never edit or delete anything in your repo - from branches to commits to tags.
+
+It will only ever add things!
+
 ```{bash}
 git fetch origin
 ```
+
+One side effect of `fetch` is that it will update your local copy of remote branches.
+So after fetching, you could merge the latest `master`:
 
 ```{bash}
 git merge origin/master
 ```
 
 --
+
+Equivalently, we can do both at once:
 
 ```{bash}
 git pull origin master
@@ -360,12 +371,19 @@ git pull origin master
 
 # Local refs to remote branches
 
+What do I mean by "local copy of remote branches"?
+
+Well, most branches we're concerned with are local branches:
+
 ```{bash}
 git branch
 ```
 
+However, git also tracks the branches on the remotes. You can actually view
+these local copies alongside your own branches:
+
 ```{bash}
-git branch -a
+git branch --all # or -a
 ```
 
 
