@@ -284,6 +284,11 @@ git log -1 --oneline
 git show HEAD~1 # view the last commit
 ```
 
+---
+
+# How do you self-rescue?
+Accidentally committed
+
 ```{bash}
 git reset HEAD~1 # or a specific commit SHA/hash
 ```
@@ -344,20 +349,22 @@ git branch -d new-branch ## cleaning up the repo
 # How do you self-rescue?
 Accidentally pulled (merge conflict)
 
-```
+```{bash}
 git fetch origin
 ```
+```{bash, error = TRUE}
+git merge origin/messy-branch
 ```
-git merge origin/messy-branch || true # this allows me to run the merge and ignore the error
-```
-```
+```{bash}
 git status
 ```
 
 The simplest way to get out of this is to abort the merge!
-```
+```{bash}
 git merge --abort
 ```
+
+---
 
 # Merge conflicts
 
