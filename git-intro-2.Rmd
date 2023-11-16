@@ -375,10 +375,27 @@ However, pulling often will make them less bad.
 # How do you self-rescue?
 Accidentally pushed changes to a remote.
 
-Here be dragons, altering history is risky, and you need to ensure that
+Here be dragons...
+
+Altering history on a feature branch is generally fine - we're usually working
+on these alone, or in small groups.
+
+--
+
+Altering history on `main` or `master` is risky.
+
+If you rewrite history, but I don't, and I push some unrelated changes,
+then whatever you removed will be added back in as part of my push.
+
+You need to ensure that
 everybody else who can push to the repo is aware of what you're doing,
 and is willing to reset to your version - otherwise, the changes will end
 up being pushed again, along with big merge conflicts!
+
+---
+
+# How do you self-rescue?
+Rewriting history on a remote
 
 Best only done if:
 
@@ -386,7 +403,20 @@ Best only done if:
 - it's a private repo with a few contributors
 - it's required (private/sensitive data, huge files committed)...
 
-Reset HEAD to a previous state
+The basic process would be something like this:
+
+- Copy the repo to a new location if you're not 100% confident
+- Reset to a previous state.
+- Double- and triple- check that you've removed whatever you need to remove
+- Check again
+- `git push --force` to the remote
+- Ask other contributors to reset to your version by running something like:
+  ```bash
+  git fetch origin
+  git reset --hard origin/main
+  ```
+  Of course, because this is a `hard` reset, they will lose any changes ---
+  this is why you need to coordinate this kind of action.
 
 ---
 
