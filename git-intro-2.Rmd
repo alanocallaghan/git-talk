@@ -173,10 +173,8 @@ git commit -m "Add a-file.txt"
 git push
 ```
 ```{bash}
-git push -u origin new-branch-with-upstream
-```
-```{bash}
 git switch master
+git branch -d new-branch-with-upstream
 ```
 
 
