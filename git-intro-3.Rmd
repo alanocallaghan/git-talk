@@ -1,0 +1,253 @@
+---
+title: Introduction to git (and GitHub)
+# author: "Alan O'Callaghan"
+output:
+  xaringan::moon_reader:
+    fig_width: 5
+    fig_height: 4
+---
+
+
+# How do you self-rescue?
+
+As with all-self rescue, the best way is to avoid getting into trouble in the first place.
+
+It's easiest to save yourself if you commit liberally and push carefully.
+
+--
+
+Often, `git reset` will come in handy.
+
+--
+
+`git reset --soft [ref]` will move the branch pointer to `ref`, with any changes
+left staged. 
+
+--
+
+`git reset --hard [ref]` is much more aggressive - it will move the branch pointer
+to `ref` and discard any changes.
+
+--
+
+`git reset [ref]` uses `--mixed`. This moves the branch pointer to `ref`,
+and unstage any changes.
+
+---
+
+# How do you self-rescue?
+Accidentally committed
+
+```{bash}
+git log -1 --oneline
+```
+```{bash}
+git show HEAD~1 # view the last commit
+```
+
+---
+
+# How do you self-rescue?
+Accidentally committed
+
+```{bash}
+git reset HEAD~1 # or a specific commit SHA/hash
+```
+
+```bash
+git add [...]
+git commit [...] # commit the changes you really want
+```
+
+or, if you realise you did want all those changes after all, you could do
+
+```{bash}
+git reset HEAD@{1} # go back to the previous state of the repo, before I reset it to HEAD~1
+```
+
+---
+
+# What is HEAD@{1}???
+
+Truthfully, you can probably treat that as magic syntax.
+
+Personally, I would instead use the amazing `git reflog` to find a specific
+reference that I want to revert to.
+
+Let's see:
+
+```{bash}
+git reflog -n 10
+```
+
+`reflog` is truly indispensable for self-rescue.
+
+---
+
+# How do you self-rescue?
+
+Accidentally committed to the wrong branch
+
+```{bash}
+git branch new-branch
+# git reset --hard origin/master # origin/master is the remote/branch
+```
+or, if you can remember some magic
+```bash
+# git reset ${upstream}
+```
+
+then
+```{bash}
+git switch new-branch
+# after it's pushed/merged/done...
+git switch -
+git branch -d new-branch ## cleaning up the repo
+```
+
+---
+
+# How do you self-rescue?
+Accidentally pulled (merge conflict)
+
+```{bash}
+git fetch origin
+```
+```{bash, error = TRUE}
+git merge origin/messy-branch
+```
+```{bash}
+git status
+```
+
+---
+
+# How do you self-rescue?
+Accidentally pulled (merge conflict)
+
+The simplest way to get out of this is to abort the merge!
+```{bash}
+git merge --abort
+```
+
+---
+
+# Merge conflicts
+
+The more complex way to deal with merge conflicts is to...
+
+actually resolve the merge conflict, then commit the changes.
+
+Unfortunately I can't help you much with this, it's difficult!
+
+However, pulling often will make them less bad.
+
+
+---
+
+# How do you self-rescue?
+Accidentally pushed changes to a remote.
+
+Here be dragons...
+
+Altering history on a feature branch is generally fine - we're usually working
+on these alone, or in small groups.
+
+--
+
+Altering history on `main` or `master` is risky.
+
+If you rewrite history, but I don't, and I push some unrelated changes,
+then whatever you removed will be added back in as part of my push.
+
+You need to ensure that
+everybody else who can push to the repo is aware of what you're doing,
+and is willing to reset to your version - otherwise, the changes will end
+up being pushed again, along with big merge conflicts!
+
+---
+
+# How do you self-rescue?
+Rewriting history on a remote
+
+Best only done if:
+
+- you're the only person working on the repo
+- it's a private repo with a few contributors
+- it's required (private/sensitive data, huge files committed)...
+
+---
+
+# How do you self-rescue?
+Rewriting history on a remote
+
+The basic process would be something like this:
+
+- Copy the repo to a new location if you're not 100% confident
+- Reset to a previous state.
+- Double- and triple- check that you've removed whatever you need to remove
+- Check again
+- `git push --force` to the remote
+- Ask other contributors to reset to your version by running something like:
+  ```bash
+  git fetch origin
+  git reset --hard origin/main
+  ```
+  Of course, because this is a `hard` reset, they will lose any changes ---
+  this is why you need to coordinate this kind of action.
+
+---
+
+# Other actions
+
+If people want, I can cover some of the following on another day:
+
+```bash
+git mv # as it sounds, move a file
+git rm # as it sounds, remove a file
+git stash # save changes for later, without committing (beware!)
+git cherry-pick # copy a commit from one branch to another
+git rebase # rewrite history (useful for merge requests, but can be messy!)
+git revert # undo a commit
+git bisect # advanced, but really useful for finding bugs
+git blame # find when different parts of a file were last changed
+# probably easier to use github's blame!
+git worktree # have multiple versions of the same repository in different folders
+```
+
+---
+
+# Other git magic
+
+It's also possible to do some more advanced things with git, such as:
+
+Splitting history (make a subdirectory into its own repo)
+
+--
+
+Adding a repository as a subdirectory (merging repos)
+
+--
+
+Submodules (repositories within repositories)
+
+--
+
+These are all relatively easy, but the answers can be better found
+on StackOverflow than I can explain right now.
+
+---
+
+
+# Other resources
+
+- Software carpentries git: https://swcarpentry.github.io/git-novice/
+
+- git book: https://git-scm.com/book/
+
+- git internals: https://github.com/pluralsight/git-internals-pdf
+
+```{bash, echo = FALSE, results = "hide"}
+git switch master
+git reset --hard ${COMMIT}
+```
