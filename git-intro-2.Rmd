@@ -268,7 +268,7 @@ Accidentally pulled (merge conflict)
 ```{bash}
 git fetch origin
 ```
-```bash}
+```{bash}
 git merge origin/messy-branch || true # this allows me to run the merge and ignore the error
 ```
 ```{bash}
