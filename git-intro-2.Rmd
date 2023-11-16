@@ -264,13 +264,18 @@ Often, `git reset` will come in handy.
 
 --
 
-`git reset --soft [ref]` will move the branch pointer to ref, with any changes
+`git reset --soft [ref]` will move the branch pointer to `ref`, with any changes
 left staged. 
 
 --
 
 `git reset --hard [ref]` is much more aggressive - it will move the branch pointer
-and discard any changes.
+to `ref` and discard any changes.
+
+--
+
+`git reset [ref]` uses `--mixed`. This moves the branch pointer to `ref`,
+and unstage any changes.
 
 ---
 
@@ -301,7 +306,7 @@ git commit [...] # commit the changes you really want
 or, if you realise you did want all those changes after all, you could do
 
 ```{bash}
-git reset HEAD@{1} # go back to the previous state of the repo, before I reset it
+git reset HEAD@{1} # go back to the previous state of the repo, before I reset it to HEAD~1
 ```
 
 ---
