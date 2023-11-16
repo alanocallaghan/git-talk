@@ -53,6 +53,8 @@ It is a moving target.
 This means that it points to the most recent commit in a sequence,
 and you can *push* commits to it, updating what the branch name points to.
 
+This is in contrast to tags, which are fixed targets.
+
 ---
 
 
@@ -149,36 +151,37 @@ these local copies alongside your own branches:
 git branch --all # or -a
 ```
 
-
 ---
 
-# Using remotes
+# Managing remotes
+
+You can add a remote using `git remote add`:
 
 ```{bash}
-git remote add upstream git@github.com:alanocallaghan/git-talk-2.git
+git remote add upstream git@github.com:/alanocallaghan/git-talk-2.git
 git fetch upstream
 ```
---
+
 ```{bash}
 git remote show
 ```
+
+---
+
+# Managing remotes
+
 --
 ```{bash}
 git remote show upstream
 ```
 --
+
+You can also edit remotes
 ```{bash}
+git remote set-url origin git@github.com:/alanocallaghan/git-talk-2.git
 git remote remove upstream
+git remote set-url origin git@github.com:/alanocallaghan/git-talk.git
 ```
-
----
-
-# What is a tag?
-
-
-- A tag is a name that points to a commit
-- It is a static target
-  - It points to a specific commit forever (mostly)
 
 ---
 
@@ -265,18 +268,18 @@ git branch -d new-branch ## cleaning up the repo
 # How do you self-rescue?
 Accidentally pulled (merge conflict)
 
-```{bash}
+```
 git fetch origin
 ```
-```{bash}
+```
 git merge origin/messy-branch || true # this allows me to run the merge and ignore the error
 ```
-```{bash}
+```
 git status
 ```
 
 The simplest way to get out of this is to abort the merge!
-```{bash}
+```
 git merge --abort
 ```
 

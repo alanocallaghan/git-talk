@@ -2,7 +2,7 @@
 title: Introduction to git (and GitHub)
 # author: "Alan O'Callaghan"
 output:
-  xaringan::moon_reader:
+  pdf_document:
     fig_width: 5
     fig_height: 4
 ---
