@@ -139,24 +139,23 @@ git pull origin master
 
 # Local refs to remote branches
 
-What do I mean by "local copy of remote branches"?
-
-Well, most branches we're concerned with are local branches:
+What do I mean by "local copy of remote branches"?  
+Most branches we're concerned with are local branches:
 
 ```{bash}
 git branch
 ```
 
-However, git also tracks the branches on the remotes. You can actually view
+However, git also has local copies of the branches on the remote(s). You can view
 these local copies alongside your own branches:
 
 ```{bash}
 git branch --all # or -a
 ```
 
-Generally, and confusingly, `origin/master` refers to the local copy of the
-remote branch, while `origin master` refers to the branch `master` on the remote
-`origin`.
+Generally, and confusingly, `origin master` refers to the branch `master` on the remote
+`origin`, while `origin/master` refers to a local copy of that
+remote branch.
 
 ---
 
