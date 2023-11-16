@@ -502,18 +502,18 @@ git branch -d new-branch ## cleaning up the repo
 # How do you self-rescue?
 Accidentally pulled (merge conflict)
 
-```{bash}
+```bash
 git fetch origin
 ```
-```{bash}
+```bash
 git merge origin/messy-branch || true # this allows me to run the merge and ignore the error
 ```
-```{bash}
+```bash
 git status
 ```
 
 The simplest way to get out of this is to abort the merge!
-```{bash}
+```bash
 git merge --abort
 ```
 
