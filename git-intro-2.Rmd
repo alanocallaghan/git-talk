@@ -97,6 +97,8 @@ Usually this is on a version control provider (GitHub).
 
 It can be a folder on your computer, or a server somewhere else.
 
+--
+
 A remote contains branches, tags, and commits, some of which might also
 be on your local machine.
 
@@ -171,6 +173,9 @@ git commit -m "Add a-file.txt"
 ```{bash, error = TRUE}
 git push
 ```
+
+--
+
 ```{bash}
 git switch master
 git branch -D new-branch-with-upstream # -D force deletes
