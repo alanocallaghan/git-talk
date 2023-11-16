@@ -78,7 +78,9 @@ basic rules.
 
 - Branches are cheap and easy
 
-  - Don't work on master/main unless you're the repo is private and/or you're working alone
+  - Don't work on master/main unless you're willing to rewrite history
+  - Usually, this means a private repo that you're working on alone or in a very
+    small group (e.g., the repo for a paper).
 
 --
 

@@ -177,7 +177,6 @@ git switch master
 git branch -D new-branch-with-upstream # -D force deletes
 ```
 
-
 ---
 
 # Managing remotes
@@ -207,6 +206,31 @@ You can also edit remotes
 git remote remove upstream
 git remote set-url origin git@github.com:/alanocallaghan/git-talk.git
 ```
+
+---
+
+# A final note on remotes
+
+I said earlier:
+> Branches are cheap and easy
+> Don't work on master/main
+
+Why is this?
+
+Well, because branches are easily split off, merged, deleted, updated, it's
+much safer to push changes to a branch than to the main branch (`master` or `main`).
+
+Any commits that are pushed to the main branch are in the repo forever, until
+we rewrite history.
+
+Imagine if you pushed a 10GB file to main --- even after deleting it,
+every time somebody cloned the repo, they'd have to download that file!
+
+If I push a 10GB file to a non-main branch, it's easier to catch mistakes
+like that before they get merged into the main branch.
+
+Any commits (and related objects/files) that are left orphaned (without a branch,
+tag, etc, pointing to them) will be deleted by git's garbage collection.
 
 ---
 
