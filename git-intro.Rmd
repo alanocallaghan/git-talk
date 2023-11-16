@@ -244,6 +244,20 @@ Done!
 
 ---
 
+# Exercise 1
+
+- Clone the repo https://github.com/alanocallaghan/git-talk.git
+- Add a file using echo or a text editor with the text "I'm using git on the command line, oh no!"
+- Add this change to the staging area and commit it, preferably with a suitably scary commit message
+- Change "oh no!" in the file to "oh yes!"
+- Stage this change and amend the previous commit, optionally changing the commit message to be a bit more optimistic
+- Revert the repository to the state it was in when you cloned it
+  (note: there are multiple ways to do this, some of which we'll cover later)
+
+
+
+---
+
 # So, what is a commit anyway?
 
 A commit is a snapshot of the repo.
@@ -328,11 +342,14 @@ git branch -d another-quick-branch
 
 A remote is just another repository.
 
-Usually this is on a version control provider (GitHub)
+Usually this is on a version control provider (GitHub).
+
 It can be a folder on your computer, or a server somewhere else.
 
 A remote contains branches, tags, and commits, some of which might also
-be on your local machine. When you *fetch* from a remote, just
+be on your local machine.
+
+When you *fetch* from a remote, just
 as when you *clone* a repository, you should get all of the
 commits stored on the remote, as well as any of the branches, tags, etc
 (though this might not always be immediately obvious).
@@ -342,7 +359,7 @@ commits stored on the remote, as well as any of the branches, tags, etc
 
 # Interacting with remotes
 
-The main way to interact with a remote is to `fetch` updates from it.
+One of the main ways to interact with a remote is to `fetch` updates from it.
 This will never edit or delete anything in your repo - from branches to commits to tags.
 
 It will only ever add things!
@@ -386,6 +403,29 @@ these local copies alongside your own branches:
 git branch --all # or -a
 ```
 
+Generally, and confusingly, `origin/master` refers to the local copy of the
+remote branch, while `origin master` refers to the branch `master` on the remote
+`origin`.
+
+---
+
+# Pushing
+
+As well as fetching from remotes, we can also `push` our changes to them.
+```{bash}
+git switch -c new-branch
+echo "Some changes" > a-file.txt
+git add a-file.txt
+git commit -m "Add a-file.txt"
+```
+```{bash, error = TRUE}
+git push
+```
+```{bash}
+git push -u origin new-branch
+```
+
+
 ---
 
 # Managing remotes
@@ -405,7 +445,6 @@ git remote show
 
 # Managing remotes
 
---
 ```{bash}
 git remote show upstream
 ```
@@ -413,7 +452,6 @@ git remote show upstream
 
 You can also edit remotes
 ```{bash}
-git remote set-url origin git@github.com:/alanocallaghan/git-talk-2.git
 git remote remove upstream
 git remote set-url origin git@github.com:/alanocallaghan/git-talk.git
 ```
@@ -426,12 +464,19 @@ As with all-self rescue, the best way is to avoid getting into trouble in the fi
 
 It's easiest to save yourself if you commit liberally and push carefully.
 
+--
+
 Often, `git reset` will come in handy.
+
+--
 
 `git reset --soft [ref]` will move the branch pointer to ref, with any changes
 left staged. 
 
-`git reset --hard` is much more aggressive - it will move the branch pointer
+--
+
+`git reset --hard [ref]` is much more aggressive - it will move the branch pointer
+and discard any changes.
 
 ---
 
@@ -474,6 +519,8 @@ Let's see:
 ```{bash}
 git reflog -n 10
 ```
+
+`reflog` is truly indispensable for self-rescue.
 
 ---
 
