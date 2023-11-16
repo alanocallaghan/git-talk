@@ -8,6 +8,29 @@ output:
 ---
 
 
+```{r opts, echo = FALSE}
+knitr::opts_chunk$set(
+    cache = 0,
+    # cache.path = "cache_git/",
+    dev = "png",
+    out.width = "500px",
+    dpi = 300,
+    dev.args = list(
+        type = "cairo-png"
+    ),
+    fig.path = "figure_git/"
+)
+library("ggplot2")
+theme_set(theme_bw())
+```
+
+<style type = "text/css">
+  .remark-code-line {
+    font-size: 10pt
+  }
+</style>
+
+
 # How do you self-rescue?
 
 As with all-self rescue, the best way is to avoid getting into trouble in the first place.
