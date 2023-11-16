@@ -1,0 +1,7 @@
+Your mission, should you choose to accept it, is to:
+
+- Make a new branch called `merged`.
+- Push these changes to it.
+- Switch back to the master branch.
+
+Good luck, ${your-name}.

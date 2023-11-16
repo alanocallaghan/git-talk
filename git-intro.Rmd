@@ -282,8 +282,6 @@ And view it with
 git show HEAD~1 # or git show [HASH}
 ```
 
----
-
 
 ```{bash, echo = FALSE, results = "hide"}
 git switch master

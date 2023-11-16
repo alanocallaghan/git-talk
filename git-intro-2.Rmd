@@ -147,12 +147,16 @@ Well, most branches we're concerned with are local branches:
 git branch
 ```
 
+--
+
 However, git also tracks the branches on the remotes. You can actually view
 these local copies alongside your own branches:
 
 ```{bash}
 git branch --all # or -a
 ```
+
+--
 
 Generally, and confusingly, `origin/master` refers to the local copy of the
 remote branch, while `origin master` refers to the branch `master` on the remote
@@ -169,9 +173,19 @@ echo "Some changes" > a-file.txt
 git add a-file.txt
 git commit -m "Add a-file.txt"
 ```
+--
+
+Say we want to publish these changes. Let's `push` them to the remote:
+
 ```{bash, error = TRUE}
 git push
 ```
+Git will complain that we don't have an upstream branch. This means that it 
+doesn't know which remote branch to update. Thankfully it at least
+provides instructions!
+
+The `-u` flag to `git push` is shorthand for `--set-upstream`.
+
 ```{bash}
 git switch master
 git branch -D new-branch-with-upstream # -D force deletes
@@ -189,6 +203,9 @@ git remote add upstream git@github.com:/alanocallaghan/git-talk-2.git
 git fetch upstream
 ```
 
+(yes, it is probably confusing to use the term `upstream` to refer to both
+an "upstream branch" on any remote, and a specific remote - it's been worse!)
+
 ```{bash}
 git remote show
 ```
@@ -202,11 +219,27 @@ git remote show upstream
 ```
 --
 
-You can also edit remotes
+You can also edit remotes --- useful if for example, you cloned `git@github.com:/qupath/qupath.git`
+to quickly get some changes, but you don't want to push some random edits to
+the main qupath repo...
 ```{bash}
 git remote remove upstream
 git remote set-url origin git@github.com:/alanocallaghan/git-talk.git
 ```
+
+---
+
+# Exercise 2
+
+
+
+Fork the talk repo from https://github.com/alanocallaghan/git-talk.git
+Change the `origin` remote to refer to your fork
+Add a new remote called `upstream` that refers to the original repo
+Fetch from the upstream remote
+Merge the `upstream/instructions` branch.
+Follow the instructions in `instructions.txt` in that branch.
+
 
 ---
 
