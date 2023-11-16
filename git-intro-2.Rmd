@@ -210,6 +210,18 @@ git remote set-url origin git@github.com:/alanocallaghan/git-talk.git
 
 ---
 
+# Exercise 2
+
+
+- Fork the talk repo from https://github.com/alanocallaghan/git-talk.git
+- Change the `origin` remote to refer to your fork
+- Add a new remote called `upstream` that refers to the original repo
+- Fetch from the upstream remote
+- Merge the `upstream/instructions` branch.
+- Follow the instructions in `instructions.txt` in that branch.
+
+---
+
 # How do you self-rescue?
 
 As with all-self rescue, the best way is to avoid getting into trouble in the first place.
@@ -350,24 +362,38 @@ Reset HEAD to a previous state
 
 # Other actions
 
+If people want, I can cover some of the following on another day:
+
 ```bash
+git mv # as it sounds, move a file
+git rm # as it sounds, remove a file
 git stash # save changes for later, without committing (beware!)
 git cherry-pick # copy a commit from one branch to another
 git rebase # rewrite history (useful for merge requests, but can be messy!)
 git revert # undo a commit
 git bisect # advanced, but really useful for finding bugs
-git blame
+git blame # find when different parts of a file were last changed
+# probably easier to use github's blame!
+git worktree # have multiple versions of the same repository in different folders
 ```
 
 ---
 
 # Other git magic
 
+It's also possible to do some more advanced things with git, such as:
+
 Splitting history (make a subdirectory into its own repo)
+
+--
 
 Adding a repository as a subdirectory (merging repos)
 
+--
+
 Submodules (repositories within repositories)
+
+--
 
 These are all relatively easy, but the answers can be better found
 on StackOverflow than I can explain right now.
