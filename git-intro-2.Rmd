@@ -424,6 +424,11 @@ Best only done if:
 - it's a private repo with a few contributors
 - it's required (private/sensitive data, huge files committed)...
 
+---
+
+# How do you self-rescue?
+Rewriting history on a remote
+
 The basic process would be something like this:
 
 - Copy the repo to a new location if you're not 100% confident
