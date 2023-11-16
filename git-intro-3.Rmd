@@ -89,7 +89,7 @@ git reflog -n 10
 Accidentally committed to the wrong branch
 
 ```{bash}
-git branch new-branch
+git branch new-branch # this means our changes are off of main/master
 # git reset --hard origin/master # origin/master is the remote/branch
 ```
 or, if you can remember some magic
