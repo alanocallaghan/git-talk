@@ -413,7 +413,7 @@ remote branch, while `origin master` refers to the branch `master` on the remote
 
 As well as fetching from remotes, we can also `push` our changes to them.
 ```{bash}
-git switch -c new-branch
+git switch -c new-branch-with-upstream
 echo "Some changes" > a-file.txt
 git add a-file.txt
 git commit -m "Add a-file.txt"
@@ -422,7 +422,10 @@ git commit -m "Add a-file.txt"
 git push
 ```
 ```{bash}
-git push -u origin new-branch
+git push -u origin new-branch-with-upstream
+```
+```{bash}
+git switch master
 ```
 
 
