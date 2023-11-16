@@ -174,7 +174,7 @@ git push
 ```
 ```{bash}
 git switch master
-git branch -d new-branch-with-upstream
+git branch -D new-branch-with-upstream # -D force deletes
 ```
 
 
